@@ -12,7 +12,7 @@ import time
 # Exit if localhost = 127.0.0.1
 local_host_ip = find_local_ipv4()
 
-NMEAConsumer_IPv4 = '192.168.234.1'
+NMEAConsumer_IPv4 = '192.168.234.145'
 NMEAConsumer_Port = 3000
 
 print("Main thread started - GPSFaker")

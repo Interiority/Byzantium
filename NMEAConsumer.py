@@ -9,7 +9,7 @@ import sys
 import socket
 from Libraries import UDP, Utilities
 
-NMEAConsumer_IPv4 = '192.168.234.1'
+NMEAConsumer_IPv4 = '192.168.234.145'
 NMEAConsumer_Port = 3000
 NMEAConsumerSocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 print('Starting NMEAConsumer')
