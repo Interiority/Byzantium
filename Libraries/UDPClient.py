@@ -18,7 +18,7 @@ class UDPClient(threading.Thread):
         self.socket = udp_socket
         self.name = name
         self.thread_id = thread_id
-        self.NMEAConsumer_IPv4 = '192.168.234.1'
+        self.NMEAConsumer_IPv4 = '192.168.234.145'
         self.NMEAConsumer_Port = 3000
 
     def run(self):
