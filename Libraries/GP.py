@@ -4,10 +4,10 @@
     v0.1    20SEP18     Forked from Survey
 """
 
-from Libraries.Instrument import Generic0183
+from Libraries.TalkerID import Talker
 
 
-class GPS(Generic0183):
+class GPS(Talker):
     def __init__(self):        # Init for instances
         super().__init__()
         self.LatitudeDM = ''

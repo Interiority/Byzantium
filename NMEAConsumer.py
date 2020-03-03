@@ -4,10 +4,15 @@ By: JOR
     v0.1    12SEP18     Forked from SDNode AUTH2.py
 """
 
-import time
-import sys
+
 import socket
-from Libraries import UDPServer, Utilities
+from Libraries.GP import GPS
+
+
+
+# Instantiate NMEA Instrument objects
+myGPS = GPS
+
 
 NMEAConsumer_IPv4 = '192.168.234.145'
 NMEAConsumer_Port = 3000
@@ -22,14 +27,15 @@ print('starting NMEAConsumer on {} port {}'.format(*server_address))
 sock.bind(server_address)
 
 while True:
-    print('\nwaiting to receive message')
+    print('\nWaiting to receive message')
     data, address = sock.recvfrom(4096)
 
-    print('received {} bytes from {}'.format(
+    print('Received {} bytes from {}'.format(
         len(data), address))
-    print(data)
 
     if data:
-        sent = sock.sendto(data, address)
-        print('sent {} bytes back to {}'.format(
-            sent, address))
+        sentence = data.decode('utf-8')
+        myGPS.sentence = sentence
+        myGPS.parse_talker()
+
+
