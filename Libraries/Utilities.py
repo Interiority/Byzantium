@@ -6,6 +6,8 @@
 
 import socket
 import time
+from random import seed
+from random import random
 
 
 def find_local_ipv4():
@@ -23,5 +25,13 @@ def return_local_time():
     return time_string
 
 
+def return_gps_time():
+    local_time = time.localtime()  # get struct_time
+    time_string = time.strftime("%H%M%S", local_time)
+    return time_string
+
+
 def seconds_later(event, how_many_seconds):
     return event + how_many_seconds < time.time()
+
+
