@@ -3,9 +3,9 @@ Broker programme for Byzantium GPS
 By: JOR
     v0.1    12SEP18     Forked from SDNode COMM2.py
 """
-from Libraries.Utilities import seconds_later, return_local_time, find_local_ipv4, return_gps_time
-from Libraries.ByzUtilities import randomize_lat, randomize_long
-from Libraries.UDPClient import UDPClient
+from UDP.Utilities import seconds_later, return_local_time, find_local_ipv4, return_gps_time
+from Byz.ByzUtilities import randomize_lat, randomize_long
+from UDP.UDPClient import UDPClient
 import socket
 import sys
 import time
