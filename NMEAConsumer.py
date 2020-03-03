@@ -7,7 +7,7 @@ By: JOR
 import time
 import sys
 import socket
-from Libraries import UDP, Utilities
+from Libraries import UDPServer, Utilities
 
 NMEAConsumer_IPv4 = '192.168.234.145'
 NMEAConsumer_Port = 3000

@@ -6,8 +6,6 @@
 
 import socket
 import time
-from random import seed
-from random import random
 
 
 def find_local_ipv4():
