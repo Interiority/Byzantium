@@ -13,7 +13,10 @@ from UDP.Utilities import find_local_host_ipv4
 # Set up lists for storing data
 GNS3001_Latitudes = []
 GNS3001_Longitudes = []
-
+GNS3002_Latitudes = []
+GNS3002_Longitudes = []
+GNS3003_Latitudes = []
+GNS3003_Longitudes = []
 
 # Instantiate NMEA Instrument objects
 myTalker = NMEA_Sentence()
@@ -21,11 +24,12 @@ myGNS3001 = GNS_Talker(3001)
 myGNS3002 = GNS_Talker(3002)
 myGNS3003 = GNS_Talker(3003)
 
+# Set up parameters for NMEAConsumer
 NMEAConsumer_IPv4 = find_local_host_ipv4('192.168.234.2')
 NMEAConsumer_Port = 3000
-NMEAConsumerSocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 # Create a UDP socket
+NMEAConsumerSocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 # Bind the socket to the port
@@ -55,15 +59,17 @@ while True:
         myGNS3001.parse_gns(sentence)
         GNS3001_Latitudes.append(myGNS3001.Latitude)
         GNS3001_Longitudes.append(myGNS3001.Longitude)
-        latitude_median = statistics.median(GNS3001_Latitudes)
-        longitude_median = statistics.median(GNS3001_Longitudes)
-        if latitude_median != myGNS3001.Latitude or longitude_median != myGNS3001.Longitude:
-            print('GNS3001 is broken')
     if gps_device == '3002':
         myGNS3002.parse_gns(sentence)
+        GNS3002_Latitudes.append(myGNS3001.Latitude)
+        GNS3002_Longitudes.append(myGNS3001.Longitude)
     if gps_device == '3003':
         myGNS3003.parse_gns(sentence)
+        GNS3003_Latitudes.append(myGNS3001.Latitude)
+        GNS3003_Longitudes.append(myGNS3001.Longitude)
 
-
-
+    latitude_median = statistics.median(GNS3001_Latitudes)
+    longitude_median = statistics.median(GNS3001_Longitudes)
+    if latitude_median != myGNS3001.Latitude or longitude_median != myGNS3001.Longitude:
+        print('GNS3001 is broken')
 
