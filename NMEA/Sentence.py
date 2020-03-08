@@ -4,7 +4,7 @@
     v0.1    20SEP18     Forked from Survey
 """
 
-from GPS.Instrument import Generic0183
+from NMEA.Instrument import Generic0183
 
 
 class NMEA_Sentence(Generic0183):
