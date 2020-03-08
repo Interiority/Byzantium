@@ -37,7 +37,6 @@ server_address = (NMEAConsumer_IPv4, NMEAConsumer_Port)
 print('starting NMEAConsumer on {} port {}'.format(*server_address))
 sock.bind(server_address)
 
-
 sentence = ''
 
 while True:
