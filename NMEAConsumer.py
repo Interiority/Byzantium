@@ -6,7 +6,7 @@ By: JOR
 
 import socket
 import statistics
-from NMEA.GNS import GNS_Talker
+from GPS.GNS import GNS_Talker
 from NMEA.Sentence import NMEA_Sentence
 
 # Set up lists for storing data
