@@ -8,6 +8,19 @@ import socket
 import time
 
 
+def find_local_host_ipv4(server_to_test_against):
+    """
+    Figure out what your IPv4 address is on a particular interface
+    :param server_to_test_against:
+    :return: the source host IPv4 address
+    """
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    s.connect((server_to_test_against, 80))
+    local_ipv4 = (s.getsockname()[0])
+    s.close()
+    return local_ipv4
+
+
 def find_local_ipv4():
     local_host_ip = str(socket.gethostbyname(socket.gethostname()))
     if local_host_ip == '127.0.0.1':

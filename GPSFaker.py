@@ -3,7 +3,7 @@ Broker programme for Byzantium GPS
 By: JOR
     v0.1    12SEP18     Forked from SDNode COMM2.py
 """
-from UDP.Utilities import seconds_later, return_local_time, find_local_ipv4, return_gps_time
+from UDP.Utilities import seconds_later, return_local_time, find_local_host_ipv4, return_gps_time
 from Byz.ByzUtilities import randomize_lat, randomize_long
 from UDP.UDPClient import UDPClient
 import socket
@@ -11,7 +11,7 @@ import sys
 import time
 
 # Exit if localhost = 127.0.0.1
-local_host_ip = find_local_ipv4()
+local_host_ip = find_local_host_ipv4('192.168.234.2')
 
 NMEAConsumer_IPv4 = '192.168.234.145'
 NMEAConsumer_Port = 3000
