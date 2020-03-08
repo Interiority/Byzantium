@@ -8,6 +8,7 @@ import socket
 import statistics
 from GPS.GNS import GNS_Talker
 from NMEA.Sentence import NMEA_Sentence
+from UDP.Utilities import find_local_host_ipv4
 
 # Set up lists for storing data
 GNS3001_Latitudes = []
@@ -20,7 +21,7 @@ myGNS3001 = GNS_Talker(3001)
 myGNS3002 = GNS_Talker(3002)
 myGNS3003 = GNS_Talker(3003)
 
-NMEAConsumer_IPv4 = '192.168.234.145'
+NMEAConsumer_IPv4 = find_local_host_ipv4('192.168.234.2')
 NMEAConsumer_Port = 3000
 NMEAConsumerSocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
