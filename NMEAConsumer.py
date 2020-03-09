@@ -28,7 +28,8 @@ myGNS3003 = GNS_Talker(3003)
 
 # instantiate quality objects
 myGNSQuality3001 = GNSQuality()
-
+myGNSQuality3002 = GNSQuality()
+myGNSQuality3003 = GNSQuality()
 
 # Set up parameters for NMEAConsumer
 NMEAConsumer_IPv4 = find_local_host_ipv4('192.168.234.2')
@@ -63,24 +64,15 @@ while True:
     if gps_device == '3001':
         myGNS3001.parse_gns(sentence)
         myGNSQuality3001.add_values(myGNS3001.Longitude, myGNS3001.Latitude)
+        myGNSQuality3001.run()
+
     if gps_device == '3002':
         myGNS3002.parse_gns(sentence)
-        GNS3002_Latitudes.append(myGNS3001.Latitude)
-        GNS3002_Longitudes.append(myGNS3001.Longitude)
+        myGNSQuality3002.add_values(myGNS3002.Longitude, myGNS3002.Latitude)
+        myGNSQuality3002.run()
+
     if gps_device == '3003':
         myGNS3003.parse_gns(sentence)
-        GNS3003_Latitudes.append(myGNS3001.Latitude)
-        GNS3003_Longitudes.append(myGNS3001.Longitude)
+        myGNSQuality3003.add_values(myGNS3003.Longitude, myGNS3003.Latitude)
+        myGNSQuality3003.run()
 
-    if len(GNS3001_Latitudes) > 10:
-        latitude_median = statistics.median(GNS3001_Latitudes)
-        longitude_median = statistics.median(GNS3001_Longitudes)
-        if latitude_median != myGNS3001.Latitude or longitude_median != myGNS3001.Longitude:
-            print('GNS3001 is broken')
-
-    myGNSQuality3001.run()
-
-    if myGNSQuality3001.latitude_median_error:
-        print('3001: latitude median error')
-    if myGNSQuality3001.longitude_median_error:
-        print('3001: longitude median error')
