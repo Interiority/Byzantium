@@ -7,8 +7,8 @@ class GNS_Talker:
         self.talker_id = talker_id
         self.NewMeasurement = False
         self.MeasurementValid = False
-        self.Latitude = ''
-        self.Longitude = ''
+        self.Latitude = 55.1
+        self.Longitude = 7.10
 
     def parse_gns(self, sentence):
 
