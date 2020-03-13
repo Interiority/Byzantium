@@ -12,14 +12,6 @@ from NMEA.Sentence import NMEA_Sentence
 from UDP.Utilities import find_local_host_ipv4
 
 
-# Set up lists for storing data
-#GNS3001_Latitudes = []
-#GNS3001_Longitudes = []
-#GNS3002_Latitudes = []
-#GNS3002_Longitudes = []
-#GNS3003_Latitudes = []
-#GNS3003_Longitudes = []
-
 # Instantiate NMEA Instrument objects
 myTalker = NMEA_Sentence()
 myGNS3001 = GNS_Talker(3001)
