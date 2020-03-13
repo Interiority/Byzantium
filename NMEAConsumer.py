@@ -13,12 +13,12 @@ from UDP.Utilities import find_local_host_ipv4
 
 
 # Set up lists for storing data
-GNS3001_Latitudes = []
-GNS3001_Longitudes = []
-GNS3002_Latitudes = []
-GNS3002_Longitudes = []
-GNS3003_Latitudes = []
-GNS3003_Longitudes = []
+#GNS3001_Latitudes = []
+#GNS3001_Longitudes = []
+#GNS3002_Latitudes = []
+#GNS3002_Longitudes = []
+#GNS3003_Latitudes = []
+#GNS3003_Longitudes = []
 
 # Instantiate NMEA Instrument objects
 myTalker = NMEA_Sentence()
@@ -31,8 +31,8 @@ myGNSQuality3001 = GNSQuality()
 myGNSQuality3002 = GNSQuality()
 myGNSQuality3003 = GNSQuality()
 
-# Set up parameters for NMEAConsumer
-NMEAConsumer_IPv4 = find_local_host_ipv4('192.168.234.2')
+# Set up parameters for NMEAConsumer, find the IPv4 address on the correct subnet
+NMEAConsumer_IPv4 = find_local_host_ipv4('192.168.5.10')
 NMEAConsumer_Port = 3000
 
 # Create a UDP socket
